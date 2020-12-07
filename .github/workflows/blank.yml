@@ -18,6 +18,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     continue-on-error: true
+    outputs:
+      status_code: ${{ steps.exists.outputs.status_code }}
     steps:
       - id: exists
         run: echo ::set-output name=status_code::$(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-${{ github.event.inputs.prNum }}.preview.sledilnik.org)
