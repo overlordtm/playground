@@ -31,13 +31,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Test pr invalid cert
-        run: "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-731.preview.sledilnik.org) == "404" ]]"
+        run: bash -c "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-731.preview.sledilnik.org) == "404" ]]"
 
       - name: Test pr valid cert
-        run: "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-732.preview.sledilnik.org) == "404" ]]"
+        run: bash -c "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-732.preview.sledilnik.org) == "404" ]]"
         
       - name: Test nonexisting pr
-        run: "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-73292.preview.sledilnik.org) == "404" ]]"
+        run: bash -c "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-73292.preview.sledilnik.org) == "404" ]]"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
