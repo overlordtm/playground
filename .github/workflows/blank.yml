@@ -20,7 +20,7 @@ jobs:
     continue-on-error: true
     steps:
       - id: exists
-        run: bash -c "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-${{ inputs.prNum }}.preview.sledilnik.org) != 404 ]]"
+        run: bash -c "[[ $(curl -o /dev/null -s -k -w "%{http_code}\n" https://pr-${{ github.event.inputs.prNum }}.preview.sledilnik.org) != 404 ]]"
   # This workflow contains a single job called "build"
   build:
     needs: [check]
